@@ -1,0 +1,26 @@
+<h1>Listing movies</h1>
+
+  <table>
+    <tr>
+      <th>Tytuł</th>
+      <th>Rok produkcji</th>
+      <th>Reżyseria</th>
+      <th>Scenariusz</th>
+      <th>Gatunek</th>
+      <th>Czas trwania</th>
+      <th>Opis</th>
+    </tr>
+
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.tytuł %></td>
+      <td><%= movie.rok_produkcji %></td>
+      <td><%= movie.reżyseria %></td>
+      <td><%= movie.scenariusz %></td>
+      <td><%= movie.gatunek %></td>
+      <td><%= movie.czas_trwania %></td>
+      <td><%= movie.opis %></td>
+      <td><%= link_to 'Show', movie_path(movie) %></td>
+    </tr>
+  <% end %>
+</table>
