@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all 
+    @movies = Movie.all
   end
 
   def new
@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
 
   def create
     # render plain: params[:movie].inspect
-    movie_params = params.require(:movie).permit(:tytuł, :rok_produkcji, :reżyseria, :scenariusz, :gatunek, :czas_trwania, :opis)
+    movie_params = params.require(:movie).permit(:tytuł, :rok_produkcji, :czas_trwania,  :opis)
     @movie = Movie.new(movie_params)
     @movie.save
     redirect_to @movie
