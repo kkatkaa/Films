@@ -1,18 +1,21 @@
 <h1>Galeria filmów</h1>
-<%= link_to 'Nowy film', new_movie_path %>
-  <table>
-    <tr>
-      <th>Tytuł</th>
-      <th>Rok produkcji</th>
-      <th>Czas trwania</th>
-      <th>Opis</th>
-    </tr>
 
+<%= link_to 'Nowy film', new_movie_path %>
+
+<table>
+  <tr>
+    <th>Tytuł</th>
+    <th>Rok produkcji</th>
+    <th>Czas trwania</th>
+    <th>Opis</th>
+    <th colspan="2"></th>
+  </tr>
   <% @movies.each do |movie| %>
     <tr>
       <td><%= movie.tytuł %></td>
       <td><%= movie.rok_produkcji %></td>
       <td><%= link_to 'Show', movie_path(movie) %></td>
+      <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
     </tr>
   <% end %>
 </table>
