@@ -28,6 +28,7 @@ class MoviesController < ApplicationController
   end
 
   def update
+    movie_params = params.require(:movie).permit(:tytuł, :rok_produkcji, :czas_trwania,  :opis)
     @movie = Movie.find(params[:id])
       if @movie.update(movie_params)
         redirect_to @movie
