@@ -4,6 +4,10 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+  end
+
   def new
     @movie = Movie.new
   end
@@ -19,10 +23,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
-
   def edit
     @movie = Movie.find(params[:id])
   end
@@ -35,5 +35,11 @@ class MoviesController < ApplicationController
       else
         render 'edit'
       end
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to @movie
   end
 end
