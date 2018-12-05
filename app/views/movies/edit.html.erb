@@ -1,40 +1,5 @@
 <h1>Edytuj film</h1>
 
-  <%= form_for(@movie) do |f| %>
-    <% if @movie.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@movie.errors.count, "error") %> Ups! Ten film nie może być zapisany!:
-        </h2>
-        <ul>
-          <% @movie.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-  <% end %>
+  <%= render 'form' %>
 
-  <p>
-    <%= f.label :tytuł %>
-    <%= f.text_field :tytuł %><br>
-    <%= f.label :rok_produkcji %>
-    <%= f.text_field :rok_produkcji %>
-  </p>
-
-  <hr />
-
-  <p>
-    <%= f.label :czas_trwania %>
-    <%= f.text_field :czas_trwania %>
-  </p>
-
-  <hr />
-  <p>
-    <%= f.label :opis %><br>
-    <%= f.text_area :opis %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p> -->
-<% end %>
-<%= link_to 'Back', movies_path %>
+  <%= link_to 'Back', movies_path %>
