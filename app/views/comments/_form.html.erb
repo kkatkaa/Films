@@ -1,8 +1,7 @@
-<h2> Zostaw komentarz:</h2>
-  <%= form_for([@movie, @movie.comments.build]) do |f| %>
-    <p><%= f.label :commenter %><br>
-      <%= f.text_field :commenter %>
-    </p>
+<%= form_for([@movie, @movie.comments.build]) do |f| %>
+  <p><%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
 
   <p>
     <%= f.label :body %><br>
