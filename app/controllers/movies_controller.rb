@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+      @comment = Comment.new
   end
 
   def new
@@ -16,7 +17,7 @@ class MoviesController < ApplicationController
     # render plain: params[:movie].inspect
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to @movie
+      redirect_to movie_path(@movie)
     else
       render 'new'
     end
@@ -27,7 +28,7 @@ class MoviesController < ApplicationController
 
   def update
       if @movie.update(movie_params)
-        redirect_to @movie
+        redirect_to movie_path(@movie)
       else
         render 'edit'
       end
@@ -35,7 +36,7 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie.destroy
-    redirect_to @movie
+    redirect_to movies_path(@movie)
   end
 
   def movie_params

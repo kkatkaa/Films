@@ -1,10 +1,19 @@
 class CommentsController < ApplicationController
-  before_action :find_movie, only: [:create, :destroy]
+  before_action :find_movie
+
+  def show
+      @comment = Comment.new
+    end
 
   def create
-    @comment = @movie.comments.create(comment_params)
-    redirect_to movie_path(@movie)
-  end
+      @comment = Comment.new(comment_params)
+      @comment.movie = @movie
+      if @comment.save
+        redirect_to movie_path(@movie)
+      else
+        render 'movies/show'
+      end
+    end
 
   def destroy
     @comment = Comment.find(params[:id])
@@ -20,5 +29,4 @@ class CommentsController < ApplicationController
   def find_movie
     @movie = Movie.find(params[:movie_id])
   end
-
 end
