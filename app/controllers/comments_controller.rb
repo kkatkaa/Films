@@ -5,17 +5,30 @@ class CommentsController < ApplicationController
 
   def show
       @comment = Comment.new
-    end
+  end
 
   def create
-      @comment = Comment.new(comment_params)
-      @comment.movie = @movie
-      if @comment.save
-        redirect_to movie_path(@movie)
-      else
-        render 'movies/show'
-      end
+    @comment = Comment.new(comment_params)
+    @comment.movie = @movie
+    if @comment.save
+      redirect_to movie_path(@movie)
+    else
+      render 'movies/show'
     end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to movie_path(@movie)
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
     @comment = Comment.find(params[:id])
