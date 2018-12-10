@@ -8,7 +8,6 @@ class MoviesController < ApplicationController
 
   def show
       @comment = Comment.new
-      @director = Director.new
   end
 
   def new
