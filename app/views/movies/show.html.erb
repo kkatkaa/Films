@@ -11,12 +11,29 @@
 </p>
 
 <p>
+  <strong>Genre:</strong>
+  <%= @movie.gatunek %>
+</p>
+
+<p>
+  <strong>Directed by:</strong>
+  <%= @movie.reżyseria %>
+</p>
+
+<p>
+  <strong>Writers:</strong>
+  <%= @movie.scenariusz %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @movie.opis %>
 </p>
 
+<hr />
 <h2>Comments</h2>
 <%= render @movie.comments %>
+
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 <p>

@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 
   def show
       @comment = Comment.new
+      @director = Director.new
   end
 
   def new
@@ -41,8 +42,8 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:tytuł, :rok_produkcji, :czas_trwania,  :opis)
-  end
+   params.require(:movie).permit(:tytuł, :rok_produkcji, :czas_trwania, :gatunek, :reżyseria, :scenariusz,  :opis )
+ end
 
   def find_movie
     @movie = Movie.find(params[:id])
