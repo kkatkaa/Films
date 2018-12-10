@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "secret",
-  except: [:index, :show]
+  http_basic_authenticate_with name: "admin", password: "secret", except: [:index, :show]
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
 
   def index
