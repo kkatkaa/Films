@@ -1,0 +1,12 @@
+<h1>Directed by:</h1>
+
+<%= form_for :director, url: movies_path do |f| %>
+<p>
+<%= f.label :director_name %><br>
+<%= f.text_field :director_name %>
+</p>
+
+<p>
+<%= f.submit %>
+</p>
+<% end %>
