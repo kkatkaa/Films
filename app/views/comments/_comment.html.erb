@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <strong>Your rate:</strong>
+  <%= comment.rating %>
+</p>
+
+<p>
   <%= link_to 'Destroy', movie_comment_path(movie_id: comment.movie.id, id: comment.id), method: :delete, data: {confirm: 'Are you sure?'} %>
   <%= link_to 'Edit', edit_movie_comment_path(movie_id: comment.movie.id, id: comment.id) %>
 </p>
