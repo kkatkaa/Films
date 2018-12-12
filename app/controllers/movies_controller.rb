@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-      @comment = Comment.new
+    @comment = Comment.new
   end
 
   def new
@@ -28,11 +28,11 @@ class MoviesController < ApplicationController
   end
 
   def update
-      if @movie.update(movie_params)
-        redirect_to movie_path(@movie)
-      else
-        render 'edit'
-      end
+    if @movie.update(movie_params)
+      redirect_to movie_path(@movie)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

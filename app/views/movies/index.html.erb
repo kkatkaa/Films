@@ -1,27 +1,30 @@
 <h1>Movies gallery</h1>
-<p>Add movie
-<%= link_to 'New movie', new_movie_path %>
-</p>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Year</th>
-    <th>Show</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>Count of comments</th>
-  </tr>
-  <% @movies.each do |movie| %>
+
+  <p>Add movie
+    <%= link_to 'New movie', new_movie_path %>
+  </p>
+
+  <table>
     <tr>
-      <td><i><%= movie.tytuł %></i></td>
-      <td><%= movie.rok_produkcji %></td>
-      <td><%= link_to 'Show', movie_path(movie) %></td>
-      <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-      <td><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= movie.comments.count %></td>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>Count of comments</th>
     </tr>
-  <% end %>
-</table>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><i><%= movie.tytuł %></i></td>
+        <td><%= movie.rok_produkcji %></td>
+        <td><%= link_to 'Show', movie_path(movie) %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+        <td><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= movie.comments.count %></td>
+      </tr>
+    <% end %>
+  </table>
+  
 <hr />
 
 Movies: <%= @movies.count %>

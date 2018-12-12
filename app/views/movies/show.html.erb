@@ -1,8 +1,8 @@
 <p>
-<strong>Title:</strong>
-  <h1><%= @movie.tytuł %></h1>
-  <strong>Year:</strong>
-<%= @movie.rok_produkcji %>
+  <strong>Title:</strong>
+    <h1><%= @movie.tytuł %></h1>
+    <strong>Year:</strong>
+  <%= @movie.rok_produkcji %>
 </p>
 
 <p>
@@ -31,11 +31,12 @@
 </p>
 
 <hr />
+
 <h2>Comments</h2>
-<%= render @movie.comments %>
+  <%= render @movie.comments %>
 
 <h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-<p>
+  <%= render 'comments/form' %>
+
 <%= link_to 'Back', movies_path %>
 <%= link_to 'Edit', edit_movie_path(@movie) %>

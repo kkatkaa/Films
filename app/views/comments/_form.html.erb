@@ -1,7 +1,6 @@
 <%= render 'common/errors', model: @comment %>
 
 <%= form_for [@movie, @comment] do |f| %>
-
   <p><%= f.label :Commenter %><br>
     <%= f.text_field :commenter %>
   </p>
@@ -19,4 +18,4 @@
   <p>
     <%= f.submit %>
   </p>
-  <% end %>
+<% end %>

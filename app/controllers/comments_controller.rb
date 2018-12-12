@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :find_movie
 
   def show
-      @comment = Comment.new
+    @comment = Comment.new
   end
 
   def create
