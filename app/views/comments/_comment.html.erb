@@ -13,9 +13,13 @@
   <%= comment.rating %>
 </p>
 
-<p>
+
+<button type="button" class="btn btn-warning">
   <%= link_to 'Destroy', movie_comment_path(movie_id: comment.movie.id, id: comment.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+</button>
+
+<button type="button" class="btn btn-warning">
   <%= link_to 'Edit', edit_movie_comment_path(movie_id: comment.movie.id, id: comment.id) %>
-</p>
+</button>
 
 <hr />

@@ -1,19 +1,17 @@
 <%= render 'common/errors', model: @comment %>
 
 <%= form_for [@movie, @comment] do |f| %>
-  <p><%= f.label :Commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
+  <div class="form-group">
+    <%= f.label :Commenter %><br>
+    <%= f.text_field :commenter, class: 'form-control'  %>
 
-  <p>
+  <div class="form-group">
     <%= f.label :Comment %><br>
-    <%= f.text_area :body %>
-  </p>
+    <%= f.text_area :body, class: 'form-control'  %>
 
-  <p>
+  <div class="form-group">
     <%= f.label :Rate_from_1_to_10 %><br>
-    <%= f.text_area :rating %>
-  </p>
+    <%= f.text_area :rating, class: 'form-control'  %>
 
   <p>
     <%= f.submit %>
