@@ -1,35 +1,32 @@
-<p>
-  <strong>Title:</strong>
-    <h1><%= @movie.tytuł %></h1>
-    <strong>Year:</strong>
-  <%= @movie.rok_produkcji %>
-</p>
+<h1 style="display: inline;" ><%= @movie.tytuł %></h1>
+  <h6 style="display: inline;"> (<%= @movie.rok_produkcji %>)</h6>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @movie.czas_trwania %>
-</p>
+  <table class="table table-bordered table-dark">
+    <tbody>
+      <tr>
+        <th scope="row">Duration</th>
+        <td><%= @movie.czas_trwania %></td>
+      </tr>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @movie.gatunek %>
-</p>
+      <tr>
+        <th scope="row">Genre</th>
+        <td><%= @movie.gatunek %></td>
+      </tr>
 
-<p>
-  <strong>Directed by:</strong>
-  <%= @movie.reżyseria %>
-</p>
+      <tr>
+        <th scope="row">Directed by</th>
+        <td><%= @movie.reżyseria %></td>
+      </tr>
 
-<p>
-  <strong>Writers:</strong>
-  <%= @movie.scenariusz %>
-</p>
+      <tr>
+        <th scope="row">Writers</th>
+        <td><%= @movie.scenariusz %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @movie.opis %>
-</p>
-
+<div class="p-3 mb-2 bg-warning text-dark"><%= @movie.opis %></div>
+    
 <hr />
 
 <h2>Comments</h2>
