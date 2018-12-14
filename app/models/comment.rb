@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   validates :body, presence: true, length: {in: 5..500}
   validates :rating, numericality: true, :inclusion => 1..10
 
-  belongs_to :movie
+  belongs_to :movie, class_name: "Movie", foreign_key: :movie_id
 end

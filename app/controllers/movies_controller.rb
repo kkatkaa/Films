@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-   params.require(:movie).permit(:tytuł, :rok_produkcji, :czas_trwania, :gatunek, :reżyseria, :scenariusz,  :opis )
+   params.require(:movie).permit(:title, :year, :duration, :genre, :director, :writer,  :description )
   end
 
   def find_movie

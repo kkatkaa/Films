@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_095440) do
+ActiveRecord::Schema.define(version: 2018_12_14_123243) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(version: 2018_12_11_095440) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string "tytuł"
-    t.integer "rok_produkcji"
-    t.string "reżyseria"
-    t.string "scenariusz"
-    t.string "gatunek"
-    t.string "czas_trwania"
-    t.text "opis"
+    t.string "title"
+    t.integer "year"
+    t.string "director"
+    t.string "writer"
+    t.string "genre"
+    t.string "duration"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

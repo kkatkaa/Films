@@ -1,31 +1,31 @@
-<h1 style="display: inline;" ><%= @movie.tytuł %></h1>
-  <h6 style="display: inline;"> (<%= @movie.rok_produkcji %>)</h6>
+<h1 style="display: inline;" ><%= @movie.title %></h1>
+  <h6 style="display: inline;"> (<%= @movie.year %>)</h6>
 
   <table class="table table-bordered table-dark">
     <tbody>
       <tr>
         <th scope="row">Duration</th>
-        <td><%= @movie.czas_trwania %></td>
+        <td><%= @movie.duration %></td>
       </tr>
 
       <tr>
         <th scope="row">Genre</th>
-        <td><%= @movie.gatunek %></td>
+        <td><%= @movie.genre %></td>
       </tr>
 
       <tr>
         <th scope="row">Directed by</th>
-        <td><%= @movie.reżyseria %></td>
+        <td><%= @movie.director %></td>
       </tr>
 
       <tr>
-        <th scope="row">Writers</th>
-        <td><%= @movie.scenariusz %></td>
+        <th scope="row">Writer</th>
+        <td><%= @movie.writer %></td>
       </tr>
     </tbody>
   </table>
 
-<div class="p-3 mb-2 bg-warning text-dark"><%= @movie.opis %></div>
+<div class="p-3 mb-2 bg-warning text-dark"><%= @movie.description %></div>
 
 <hr />
 
