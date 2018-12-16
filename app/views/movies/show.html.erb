@@ -1,6 +1,8 @@
 <h1 style="display: inline;" ><%= @movie.title %></h1>
   <h6 style="display: inline;"> (<%= @movie.year %>)</h6>
 
+<%= image_tag @movie.image.url(:thumb) %>
+
   <table class="table table-bordered table-dark">
     <tbody>
       <tr>

@@ -1,12 +1,17 @@
 <div class="container-fluid">
 <%= render 'common/errors', model: @movie %>
-<%= form_for @movie do |f| %>
+<%= form_for @movie, html: { multipart: true } do |f| %>
 
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %><br>
     <%= f.label :year %>
     <%= f.text_field :year, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
 
   <hr />
