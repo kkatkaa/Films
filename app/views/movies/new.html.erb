@@ -1,7 +1,4 @@
 <h1> New movie </h1>
 
   <%= render 'form' %>
-
-  <button type="button" class="btn btn-warning">
-    <%= link_to 'Back', movies_path %>
-  </button>
+  <%= link_to 'Back', movies_path, class: "btn btn-warning" %>

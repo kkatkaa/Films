@@ -37,10 +37,6 @@
 <h2>Add a comment:</h2>
   <%= render 'comments/form' %>
 
-<button type="button" class="btn btn-warning">
-  <%= link_to 'Back', movies_path %>
-</button>
+  <%= link_to 'Back', movies_path, class: "btn btn-warning" %>
 
-<button type="button" class="btn btn-warning">
-  <%= link_to 'Edit', edit_movie_path(@movie) %>
-</button>
+  <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-warning" %>

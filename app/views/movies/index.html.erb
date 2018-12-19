@@ -22,9 +22,9 @@
         <tr>
           <td><i><%= movie.title %></i></td>
           <td><%= movie.year %></td>
-          <td><button type="button" class="btn btn-warning"><%= link_to 'Show', movie_path(movie) %></button></td>
-          <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_movie_path(movie) %></button></td>
-          <td><button type="button" class="btn btn-warning"><%= link_to 'Delete', movie_path(movie), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <td><%= link_to 'Show', movie_path(movie), class: "btn btn-warning" %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-warning" %></td>
+          <td><%= link_to 'Delete', movie_path(movie), class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <td><%= movie.comments.count %></td>
         </tr>
       <% end %>
@@ -33,5 +33,5 @@
 
   <hr />
 
-  <h2>Movies: <%= @movies.count %></h2>
+  <h2>Movies on our base: <%= @movies.count %></h2>
 </div>
