@@ -2,6 +2,8 @@
   <h6 style="display: inline;"> (<%= @movie.year %>)</h6>
 
 <%= image_tag @movie.image.url(:thumb) %>
+<strong>User:</strong>
+  <%= @movie.user.email %>
 
   <table class="table table-bordered table-dark">
     <tbody>
@@ -10,20 +12,12 @@
         <td><%= @movie.duration %></td>
       </tr>
 
-      <tr>
-        <th scope="row">Genre</th>
-        <td><%= @movie.genre %></td>
-      </tr>
-
-      <tr>
-        <th scope="row">Directed by</th>
-        <td><%= @movie.director %></td>
-      </tr>
-
-      <tr>
-        <th scope="row">Writer</th>
-        <td><%= @movie.writer %></td>
-      </tr>
+      <p>
+      <strong> Tags:</strong>
+        <% @movie.tags.each do |t| %>
+          <%=link_to t, movies_path(q: t), class: "badge badge-dark"%>
+        <% end %>
+      </p>
     </tbody>
   </table>
 
@@ -33,10 +27,15 @@
 
 <h2>Comments</h2>
   <%= render @movie.comments %>
+  <% if current_user %>
+    <%=render 'comments/form' %>
+  <%end%>
 
 <h2>Add a comment:</h2>
   <%= render 'comments/form' %>
 
   <%= link_to 'Back', movies_path, class: "btn btn-warning" %>
 
-  <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-warning" %>
+  <% if @movie.user == current_user || current_user&.admin? %>
+    <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-warning" %>
+  <% end %>

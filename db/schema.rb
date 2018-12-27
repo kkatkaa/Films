@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_152210) do
+ActiveRecord::Schema.define(version: 2018_12_27_195140) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string "commenter"
     t.text "body"
-    t.integer "movie_id"
+    t.bigint "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rating"
+    t.bigint "user_id"
     t.index ["movie_id"], name: "index_comments_on_movie_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.integer "year"
-    t.string "director"
-    t.string "writer"
-    t.string "genre"
+    t.string "year"
     t.string "duration"
     t.text "description"
     t.datetime "created_at", null: false
@@ -36,6 +37,27 @@ ActiveRecord::Schema.define(version: 2018_12_16_152210) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.text "tags", default: [], array: true
+    t.bigint "users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_movies_on_user_id"
+    t.index ["users_id"], name: "index_movies_on_users_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.boolean "admin", default: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "comments", "movies"
+  add_foreign_key "comments", "users"
+  add_foreign_key "movies", "users", column: "users_id"
 end

@@ -6,11 +6,21 @@
   <h2><%= link_to 'New movie', new_movie_path %></h2>
 </div>
 
+<%= form_tag movies_path, method: :get do %>
+  <div class="input-group">
+    <%= text_field_tag :q, params[:q], class: "form-control" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Search", class: "btn btn-default" %>
+      </span>
+  </div>
+<% end %>
+
   <table class='table table-striped table-dark'>
     <thead>
       <tr>
         <th>Title</th>
         <th>Year</th>
+        <th>User</th>
         <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -22,9 +32,14 @@
         <tr>
           <td><i><%= movie.title %></i></td>
           <td><%= movie.year %></td>
-          <td><%= link_to 'Show', movie_path(movie), class: "btn btn-warning" %></td>
-          <td><%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-warning" %></td>
-          <td><%= link_to 'Delete', movie_path(movie), class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= movie.user.email %></td>
+          <td><%= link_to 'Show', movie_path(movie) %></td>
+            <% if movie.user == current_user || current_user&.admin? %>
+              <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+            <%end%>
+            <% if movie.user == current_user || current_user&.admin? %>
+              <td><%= link_to 'Delete', movie_path(movie), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+            <%end %>
           <td><%= movie.comments.count %></td>
         </tr>
       <% end %>
