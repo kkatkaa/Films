@@ -3,17 +3,16 @@
   <p class="lead">This is an online database of information about actors, movies, TV shows, and video games.</p>
   <hr class="my-4">
   <p>Find movies, games, TV shows, actors and more...</p>
+    <%= form_tag movies_path, method: :get do %>
+      <div class="input-group">
+        <%= text_field_tag :q, params[:q], class: "form-control" %>
+          <span class="input-group-btn">
+            <%= submit_tag "Search", class: "btn btn-default" %>
+          </span>
+      </div>
+    <% end %>
   <h2><%= link_to 'New movie', new_movie_path %></h2>
 </div>
-
-<%= form_tag movies_path, method: :get do %>
-  <div class="input-group">
-    <%= text_field_tag :q, params[:q], class: "form-control" %>
-      <span class="input-group-btn">
-        <%= submit_tag "Search", class: "btn btn-default" %>
-      </span>
-  </div>
-<% end %>
 
   <table class='table table-striped table-dark'>
     <thead>
@@ -34,12 +33,12 @@
           <td><%= movie.year %></td>
           <td><%= movie.user.email %></td>
           <td><%= link_to 'Show', movie_path(movie) %></td>
-            <% if movie.user == current_user || current_user&.admin? %>
-              <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-            <%end%>
-            <% if movie.user == current_user || current_user&.admin? %>
-              <td><%= link_to 'Delete', movie_path(movie), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
-            <%end %>
+          <td><% if movie.user == current_user || current_user&.admin? %>
+                <%= link_to 'Edit', edit_movie_path(movie) %>
+              <% end %></td>
+          <td><% if movie.user == current_user || current_user&.admin? %>
+                  <%= link_to 'Delete', movie_path(movie), method: :delete, data: {confirm: 'Are you sure?'} %>
+              <% end %></td>
           <td><%= movie.comments.count %></td>
         </tr>
       <% end %>
