@@ -50,7 +50,7 @@ class MoviesController < ApplicationController
 
   private
 
-  def authorize_article
+  def authorize_movie
     if current_user != @movie.user && !current_user&.admin?
       flash[:alert] = "You are not allowed to be here!"
       redirect_to movies_path

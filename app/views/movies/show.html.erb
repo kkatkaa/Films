@@ -2,7 +2,7 @@
   <h6 style="display: inline;"> (<%= @movie.year %>)</h6>
 
 <%= image_tag @movie.image.url(:thumb) %>
-<strong>User:</strong>
+<strong>Added by:</strong>
   <%= @movie.user.email %>
 
   <table class="table table-bordered table-dark">
@@ -27,12 +27,13 @@
 
 <h2>Comments</h2>
   <%= render @movie.comments %>
+  <h2>Add a comment:</h2>
   <% if current_user %>
+
     <%=render 'comments/form' %>
   <%end%>
 
-<h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
+
 
   <%= link_to 'Back', movies_path, class: "btn btn-warning" %>
 
