@@ -7,6 +7,8 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all.order(id: :desc)
     @movies = @movies.where("? = any(tags)", params[:q]) if params[:q].present?
+    # @movies = @movies.where("tags IN (?)", params[:q]) if params[:q].present?
+    # @movies = @movies.where("IN (?) = any(tags)", params[:q]) if params[:q].present?
   end
 
   def show

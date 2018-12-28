@@ -1,9 +1,7 @@
 <h1 style="display: inline;" ><%= @movie.title %></h1>
   <h6 style="display: inline;"> (<%= @movie.year %>)</h6>
 
-<%= image_tag @movie.image.url(:thumb) %>
-<strong>Added by:</strong>
-  <%= @movie.user.email %>
+<%= image_tag @movie.image.url(:thumb) %><br>
 
   <table class="table table-bordered table-dark">
     <tbody>
@@ -39,4 +37,7 @@
 
   <% if @movie.user == current_user || current_user&.admin? %>
     <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-warning" %>
-  <% end %>
+  <% end %></br>
+
+  <strong>Added by:</strong>
+  <strong><%= @movie.user.email %></strong>
