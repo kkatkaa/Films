@@ -20,7 +20,12 @@ class Movie < ApplicationRecord
     super(value)
   end
 
+  def average_rating
+    self.comments.average(:rating)
+  end
+
   private
+
 
   def sanitize_tags(text)
     text.downcase.split.uniq
