@@ -1,7 +1,8 @@
 <h1 style="display: inline;" ><%= @movie.title %></h1>
   <h6 style="display: inline;"> (<%= @movie.year %>)</h6>
 
-<%= image_tag @movie.image.url(:thumb) %><br>
+<%= image_tag @movie.image.url(:thumb) %>
+<hr />
 
   <table class="table table-bordered table-dark">
     <tbody>
@@ -10,12 +11,10 @@
         <td><%= @movie.duration %></td>
       </tr>
 
-      <p>
-      <strong> Tags:</strong>
-        <% @movie.tags.each do |t| %>
-          <%=link_to t, movies_path(q: t), class: "badge badge-dark"%>
-        <% end %>
-      </p>
+        <th scope="row">Genres</th>
+          <td><% @movie.genres.each do |genre| %>
+            <%= link_to genre.name, genre_path(genre), class: "badge badge-light" %>
+          <% end %></td>
     </tbody>
   </table>
 
@@ -25,19 +24,25 @@
 
 <h2>Comments</h2>
   <%= render @movie.comments %>
-  <h2>Add a comment:</h2>
+<h2>Add a comment:</h2>
   <% if current_user %>
-
     <%=render 'comments/form' %>
   <%end%>
-
-
 
   <%= link_to 'Back', movies_path, class: "btn btn-warning" %>
 
   <% if @movie.user == current_user || current_user&.admin? %>
     <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-warning" %>
-  <% end %></br>
+  <% end %>
+<hr />
 
-  <strong>Added by:</strong>
-  <strong><%= @movie.user.email %></strong>
+  <p>
+  <strong> Tags:</strong>
+    <% @movie.tags.each do |t| %>
+      <%=link_to t, movies_path(q: t), class: "badge badge-dark"%>
+    <% end %>
+  </p>
+<hr />
+
+  <strong>Movie added by:</strong>
+  <%= @movie.user.email %>

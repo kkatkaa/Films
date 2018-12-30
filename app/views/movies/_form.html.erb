@@ -14,6 +14,11 @@
     <%= f.file_field :image %>
   </div>
 
+  <div class="field">
+    <%= f.label :genres %>
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name, class: 'form-control' %>
+  </div>
+
   <hr />
 
   <div class="form-group">

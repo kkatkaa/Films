@@ -5,7 +5,6 @@ class MoviesController < ApplicationController
   before_action :authorize_movie, only: [:edit, :update, :destroy]
 
   def index
-
     @movies = Movie.all.order(id: :desc)
     @movies = @movies.where("tags @> ARRAY[?]::text[]", params[:q].split(' '))  if params[:q].present?
     #@movies = @movies.where("? = any(tags)", params[:q]) if params[:q].present?
@@ -63,7 +62,7 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-   params.require(:movie).permit(:title, :year, :image, :duration,  :description, :tags, :user)
+   params.require(:movie).permit(:title, :year, :image, :duration, :description, :tags, :user, genre_ids: [])
   end
 
   def find_movie
