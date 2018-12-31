@@ -6,8 +6,9 @@
 </p>
 
 <p>
+  <strong>Movies</strong>
     <% @genre.movies.each do |movie| %>
-      <%= link_to movie.title, movie_path(movie) %>
+      <%= link_to movie.title, movie_path(movie),  class: "btn btn-warning" %>
     <% end %>
 </p>
 
