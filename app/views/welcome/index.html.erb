@@ -1,9 +1,10 @@
 <div class="jumbotron">
   <h1 class="display-4">FILMOVO</h1>
-    <p><%= image_tag "Movie.jpg", class: "img-responsive" %></p>
     <p class="lead">Movies descriptions, ratings, opinions</p>
-
-  <hr class="my-4">
+    <p><%= link_to movies_path do %>
+       <%= image_tag("Movie.jpg", "data-svg-fallback" => asset_path("Movie.jpg",), :align=> "left" ,:style => "padding-right: 5px;", :size => "200x125") %>
+    <% end %></p>
+  <hr />
   <%= link_to 'Movies Gallery', controller: "movies" %>
   <%= link_to 'Genres', controller: "genres" %>
 </div>
