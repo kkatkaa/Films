@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_12_29_163242) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text "body"
+    t.text "body", null: false
     t.bigint "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_29_163242) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.string "year"
     t.string "duration"
     t.text "description"
